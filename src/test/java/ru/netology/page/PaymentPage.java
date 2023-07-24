@@ -24,7 +24,7 @@ public class PaymentPage {
     private SelenideElement approvedOperation = $(byText("Успешно"));
     private SelenideElement errorOperation = $(byText("Ошибка"));
     private SelenideElement invalidFormat = $(byText("Неверный формат"));
-    private SelenideElement validityPeriodCardSpecifiedIncorrectlyMonthField = $(byText("Неверно указан срок действия карты"));
+    private SelenideElement validityPeriodCardSpecifiedIncorrectly = $(byText("Неверно указан срок действия карты"));
     private SelenideElement cardExpired = $(byText("Истёк срок действия карты"));
     private SelenideElement requiredFieldFilling = $(byText("Поле обязательно для заполнения"));
 
@@ -56,8 +56,8 @@ public class PaymentPage {
         invalidFormat.shouldBe(visible);
     }
 
-    public void IncorrectlyMonthField() {
-        validityPeriodCardSpecifiedIncorrectlyMonthField.shouldBe(visible);
+    public void incorrectlyValuesSpecified() {
+        validityPeriodCardSpecifiedIncorrectly.shouldBe(visible);
     }
 
     public void cardExpiredError() {

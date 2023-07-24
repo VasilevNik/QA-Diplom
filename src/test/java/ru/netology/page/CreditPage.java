@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class CreditPage {
-    private SelenideElement heading = $$("h3").find(exactText("Оплата по карте"));
+    private SelenideElement heading = $$("h3").find(exactText("Кредит по данным карты"));
     private SelenideElement cardField = $("[placeholder='0000 0000 0000 0000']");
     private SelenideElement monthField = $("[placeholder='08']");
     private SelenideElement yearField = $("[placeholder='22']");
@@ -24,7 +24,7 @@ public class CreditPage {
     private SelenideElement approvedOperation = $(byText("Успешно"));
     private SelenideElement errorOperation = $(byText("Ошибка"));
     private SelenideElement invalidFormat = $(byText("Неверный формат"));
-    private SelenideElement validityPeriodCardSpecifiedIncorrectlyMonthField = $(byText("Неверно указан срок действия карты"));
+    private SelenideElement validityPeriodCardSpecifiedIncorrectly = $(byText("Неверно указан срок действия карты"));
     private SelenideElement cardExpired = $(byText("Истёк срок действия карты"));
     private SelenideElement requiredFieldFilling = $(byText("Поле обязательно для заполнения"));
 
@@ -56,8 +56,8 @@ public class CreditPage {
         invalidFormat.shouldBe(visible);
     }
 
-    public void IncorrectlyMonthField() {
-        validityPeriodCardSpecifiedIncorrectlyMonthField.shouldBe(visible);
+    public void incorrectlyValuesSpecified() {
+        validityPeriodCardSpecifiedIncorrectly.shouldBe(visible);
     }
 
     public void cardExpiredError() {

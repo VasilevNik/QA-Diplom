@@ -46,7 +46,7 @@ public class DataHelper {
     }
 
     public static CardInfo getCardBelowCurrentMonthThisYear() {
-        return new CardInfo("4444 4444 4444 4441", "07", "23", "Ivan Ivanov", "777");
+        return new CardInfo("4444 4444 4444 4441", "06", "23", "Ivan Ivanov", "777");
     }
 
     public static CardInfo getCardNullMonth() {

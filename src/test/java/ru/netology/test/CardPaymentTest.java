@@ -33,17 +33,196 @@ public class CardPaymentTest {
         SelenideLogger.removeListener("allure");
     }
 
-    @Test
-    public void probnik() {
+    /*@Test
+    public void allValuesEnteredCorrectlyStatusApproved() {
         val startPage = new StartPage();
         val payment = startPage.cashCard();
         payment.fillingData(DataHelper.getApprovedCard());
         payment.successPayment();
-        val paymentStatus = DataSQL.getPaymentStatus();
-        assertEquals("APPROVED", paymentStatus);
+        assertEquals("APPROVED", DataSQL.getPaymentStatus());
     }
 
+    @Test
+    //Завести ишью, операция проходит успешно
+    public void allValuesEnteredCorrectlyStatusDeclined() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getDeclinedCard());
+        payment.errorPayment();
+        assertEquals("DECLINED", DataSQL.getPaymentStatus());
+    }
 
+    @Test
+    public void enteringCardNumberFewerDigits() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getAnInvalidCard());
+        payment.errorFormat();
+    }
 
+    @Test
+    public void enteringNonExistingCardNumber() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getNonexistentCard());
+        payment.errorPayment();
+    }
+
+    @Test
+    public void emptyCardNumberField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getEmptyCard());
+        payment.errorFormat();
+    }
+
+    @Test
+    public void oneDigitMonthField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardWith1MonthSymbol());
+        payment.errorFormat();
+    }
+    @Test
+    public void entering13InMonthField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardExceeding12Months());
+        payment.incorrectlyValuesSpecified();
+    }
+
+    @Test
+    public void enteringValueBelowCurrentInMonthField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardBelowCurrentMonthThisYear());
+        payment.incorrectlyValuesSpecified();
+    }
+
+    @Test
+    public void enteringNullValuesMonthField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardNullMonth());
+        payment.incorrectlyValuesSpecified();
+    }
+
+    @Test
+    public void emptyMonthField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardEmptyMonth());
+        payment.errorFormat();
+    }
+
+    @Test
+    public void oneDigitYearField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardWith1YearSymbol());
+        payment.errorFormat();
+    }
+
+    @Test
+    public void enteringExpiredCardValues() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardWithAnExpiredYear());
+        payment.cardExpiredError();
+    }
+
+    @Test
+    public void enteringCardValuesExceeding5Years() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardExceeding5Years());
+        payment.incorrectlyValuesSpecified();
+    }
+
+    @Test
+    public void enteringNullValuesYearField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardNullYear());
+        payment.cardExpiredError();
+    }
+
+    @Test
+    public void emptyYearField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardEmptyYear());
+        payment.errorFormat();
+    }
+
+    @Test
+    //Завести ишью, проходит кириллица
+    public void enteringCyrillicInCardHolderField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardHolderCyrillic());
+        payment.errorFormat();
+    }
+
+    @Test
+    //Завести ишью, в поле владелец проходят цифры
+    public void enteringDigitInCardHolderField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardHolderNumbers());
+        payment.errorFormat();
+    }
+
+    @Test
+    //Завести ишью, в поле владелец проходят спец символы
+    public void enteringSpecialCharactersInCardHolderField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardHolderSpecialSymbols());
+        payment.errorFormat();
+    }
+
+    @Test
+    public void emptyCardHolderField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardHolderEmpty());
+        payment.requiredField();
+    }
+
+    @Test
+    public void oneDigitCvcCvvField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardWith1CVVSymbol());
+        payment.errorFormat();
+    }
+
+    @Test
+    public void twoDigitCvcCvvField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardWith2CVVSymbol());
+        payment.errorFormat();
+    }
+
+    @Test
+    //завести ишью, проходит cvc с нулями
+    public void enteringNullValuesCvcCvvField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardNullCVV());
+        payment.errorFormat();
+    }
+
+    @Test
+    //Завести ишью. Неверная ошибка под полем cvc(Неверный формат),
+    //и ненужная ошибка под полем Владелец(Поле обязательно для заполнения)
+    public void emptyCvcCvvField() {
+        val startPage = new StartPage();
+        val payment = startPage.cashCard();
+        payment.fillingData(DataHelper.getCardEmptyCVV());
+        payment.requiredField();
+    }*/
 
 }
