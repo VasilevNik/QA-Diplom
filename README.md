@@ -13,7 +13,7 @@
 
 ## Prerequisites
 
-- Установить **браузер**(наиболее популярные **[Google Chrome](https://www.google.com/intl/ru/chrome/browser-tools/), [Яндекс.Браузер](https://browser.yandex.ru/), [Safari](https://www.apple.com/ru/safari/), [Opera](https://www.opera.com/ru/browsers/opera), [Firefox](https://www.mozilla.org/ru/firefox/new/)** для открытия [веб-сервиса](http://localhost:8080/)
+- Установить **браузер**(наиболее популярные **[Google Chrome](https://www.google.com/intl/ru/chrome/browser-tools/), [Яндекс.Браузер](https://browser.yandex.ru/), [Safari](https://www.apple.com/ru/safari/), [Opera](https://www.opera.com/ru/browsers/opera), [Firefox](https://www.mozilla.org/ru/firefox/new/)**) для открытия [веб-сервиса](http://localhost:8080/)
 - Установить **[IntelliJ IDEA](https://www.jetbrains.com/ru-ru/idea/download/)**
 - Установить **[Git](https://desktop.github.com/)**
 - Установить **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**
