@@ -13,6 +13,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreditCardPayment {
 
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
+
 
     @BeforeEach
     void openPage() {
@@ -22,16 +32,6 @@ public class CreditCardPayment {
     @AfterEach
     void cleanBase() {
         DataSQL.cleanDataBase();
-    }
-
-    @BeforeAll
-    static void setUpAll() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-    }
-
-    @AfterAll
-    static void tearDownAll() {
-        SelenideLogger.removeListener("allure");
     }
 
     @Test

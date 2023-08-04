@@ -33,7 +33,7 @@ public class CardPaymentTest {
         SelenideLogger.removeListener("allure");
     }
 
-    /*@Test
+    @Test
     public void allValuesEnteredCorrectlyStatusApproved() {
         val startPage = new StartPage();
         val payment = startPage.cashCard();
@@ -223,6 +223,6 @@ public class CardPaymentTest {
         val payment = startPage.cashCard();
         payment.fillingData(DataHelper.getCardEmptyCVV());
         payment.requiredField();
-    }*/
+    }
 
 }
