@@ -36,3 +36,8 @@
 ## Формирование отчета
 В новой вкладке терминала ввести .\gradlew allureReport
 
+## Проектная документация
+
+- [План автоматизации](https://github.com/VasilevNik/QA-Diplom/blob/main/docs/Plan.md)
+- [Отчётные документы по итогам тестирования](https://github.com/VasilevNik/QA-Diplom/blob/main/docs/Report.md)
+- [Отчётные документы по итогам автоматизации](https://github.com/VasilevNik/QA-Diplom/blob/main/docs/Summary.md)
