@@ -83,6 +83,7 @@ public class CardPaymentTest {
         payment.fillingData(DataHelper.getCardWith1MonthSymbol());
         payment.errorFormat();
     }
+
     @Test
     public void entering13InMonthField() {
         val startPage = new StartPage();
