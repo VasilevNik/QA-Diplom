@@ -41,39 +41,44 @@ public class DataHelper {
         return LocalDate.now().plusYears(6).format(DateTimeFormatter.ofPattern("yy"));
     }
 
-    static Faker faker = new Faker(new Locale("en"));
-
     public static String getCardHolder() {
+        Faker faker = new Faker(new Locale("en"));
+        return faker.name().firstName() + " " + faker.name().lastName();
+    }
+
+    public static String getCardHolderNameCyrillic() {
+        Faker faker = new Faker(new Locale("ru"));
         return faker.name().firstName() + " " + faker.name().lastName();
     }
 
     public static String getCVV() {
+        Faker faker = new Faker();
         return Integer.toString(faker.number().numberBetween(100, 999));
     }
 
 
     public static CardInfo getApprovedCard() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getDeclinedCard() {
-        return new CardInfo("4444 4444 4444 4442", getCurrentMonth(), getCurrentYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4442", getCurrentMonth(), getCurrentYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getAnInvalidCard() {
-        return new CardInfo("4444 4444 4444 447", getCurrentMonth(), getCurrentYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 447", getCurrentMonth(), getCurrentYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getNonexistentCard() {
-        return new CardInfo("4444 4444 4444 4477", getCurrentMonth(), getCurrentYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4477", getCurrentMonth(), getCurrentYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getEmptyCard() {
-        return new CardInfo("", getCurrentMonth(), getCurrentYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("", getCurrentMonth(), getCurrentYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getCardWith1MonthSymbol() {
-        return new CardInfo("4444 4444 4444 4441", "2", getCurrentYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4441", "2", getCurrentYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getCardExceeding12Months() {
@@ -81,23 +86,23 @@ public class DataHelper {
     }
 
     public static CardInfo getCardBelowCurrentMonthThisYear() {
-        return new CardInfo("4444 4444 4444 4441", getLastMonth(), getCurrentYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4441", getLastMonth(), getCurrentYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getCardNullMonth() {
-        return new CardInfo("4444 4444 4444 4441", "00", getCurrentYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4441", "00", getCurrentYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getCardEmptyMonth() {
-        return new CardInfo("4444 4444 4444 4441", "", getCurrentYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4441", "", getCurrentYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getCardWith1YearSymbol() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), "2", "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), "2", getCardHolder(), getCVV());
     }
 
     public static CardInfo getCardWithAnExpiredYear() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getLastYear(), "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getLastYear(), getCardHolder(), getCVV());
     }
 
     public static CardInfo getCardExceeding5Years() {
@@ -105,15 +110,15 @@ public class DataHelper {
     }
 
     public static CardInfo getCardNullYear() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), "00", "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), "00", getCardHolder(), getCVV());
     }
 
     public static CardInfo getCardEmptyYear() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), "", "Ivan Ivanov", getCVV());
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), "", getCardHolder(), getCVV());
     }
 
     public static CardInfo getCardHolderCyrillic() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), "Николай", getCVV());
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), getCardHolderNameCyrillic(), getCVV());
     }
 
     public static CardInfo getCardHolderNumbers() {
@@ -129,18 +134,18 @@ public class DataHelper {
     }
 
     public static CardInfo getCardWith1CVVSymbol() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), "Ivan Ivanov", "2");
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), getCardHolder(), "2");
     }
 
     public static CardInfo getCardWith2CVVSymbol() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), "Ivan Ivanov", "22");
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), getCardHolder(), "22");
     }
 
     public static CardInfo getCardNullCVV() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), "Ivan Ivanov", "000");
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), getCardHolder(), "000");
     }
 
     public static CardInfo getCardEmptyCVV() {
-        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), "Ivan Ivanov", "");
+        return new CardInfo("4444 4444 4444 4441", getCurrentMonth(), getCurrentYear(), getCardHolder(), "");
     }
 }
