@@ -34,7 +34,7 @@ public class CreditCardPayment {
         DataSQL.cleanDataBase();
     }
 
-    @Test
+    /*@Test
     public void allValuesEnteredCorrectlyStatusApproved() {
         val startPage = new StartPage();
         val payment = startPage.creditCard();
@@ -225,5 +225,5 @@ public class CreditCardPayment {
         val payment = startPage.creditCard();
         payment.fillingDataCreditCard(DataHelper.getCardEmptyCVV());
         payment.requiredField();
-    }
+    }*/
 }

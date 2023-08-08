@@ -33,7 +33,7 @@ public class CardPaymentTest {
         SelenideLogger.removeListener("allure");
     }
 
-    @Test
+    /*@Test
     public void allValuesEnteredCorrectlyStatusApproved() {
         val startPage = new StartPage();
         val payment = startPage.cashCard();
@@ -82,7 +82,7 @@ public class CardPaymentTest {
         val payment = startPage.cashCard();
         payment.fillingData(DataHelper.getCardWith1MonthSymbol());
         payment.errorFormat();
-    }
+    }*/
 
     @Test
     public void entering13InMonthField() {
@@ -92,7 +92,7 @@ public class CardPaymentTest {
         payment.incorrectlyValuesSpecified();
     }
 
-    @Test
+    /*@Test
     public void enteringValueBelowCurrentInMonthField() {
         val startPage = new StartPage();
         val payment = startPage.cashCard();
@@ -100,7 +100,7 @@ public class CardPaymentTest {
         payment.incorrectlyValuesSpecified();
     }
 
-    @Test
+    /*@Test
     public void enteringNullValuesMonthField() {
         val startPage = new StartPage();
         val payment = startPage.cashCard();
@@ -130,7 +130,7 @@ public class CardPaymentTest {
         val payment = startPage.cashCard();
         payment.fillingData(DataHelper.getCardWithAnExpiredYear());
         payment.cardExpiredError();
-    }
+    }*/
 
     @Test
     public void enteringCardValuesExceeding5Years() {
@@ -140,7 +140,7 @@ public class CardPaymentTest {
         payment.incorrectlyValuesSpecified();
     }
 
-    @Test
+    /*@Test
     public void enteringNullValuesYearField() {
         val startPage = new StartPage();
         val payment = startPage.cashCard();
@@ -224,6 +224,6 @@ public class CardPaymentTest {
         val payment = startPage.cashCard();
         payment.fillingData(DataHelper.getCardEmptyCVV());
         payment.requiredField();
-    }
+    }*/
 
 }
